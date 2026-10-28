@@ -4,9 +4,9 @@
   "mode": "live",
   "model": "deepseek-flash",
   "mock_boundary": null,
-  "started_at": "2026-10-28T10:49:12+08:00",
-  "finished_at": "2026-10-28T10:49:18+08:00",
-  "elapsed_seconds": 6.203,
+  "started_at": "2026-10-28T16:47:55+08:00",
+  "finished_at": "2026-10-28T16:48:01+08:00",
+  "elapsed_seconds": 5.904,
   "steps": 6,
   "tool_calls": 6,
   "limits": {
@@ -34,12 +34,12 @@
       "draft": {
         "save_status": "saved",
         "record": {
-          "id": "D-1c78603bd8a3",
+          "id": "D-0db0f82318e6",
           "request_id": "demo-conflict-001",
           "material_id": "M01",
           "revision": 1,
           "state": "pending_confirmation",
-          "updated_at": "2026-10-28T10:49:17+08:00",
+          "updated_at": "2026-10-28T16:48:00+08:00",
           "approved_alternative_at": null,
           "channel": "wechat",
           "confirmation_status": "pending",
@@ -53,7 +53,7 @@
         }
       },
       "last_error": null,
-      "availability_checked_at": "2026-10-28T10:49:16+08:00",
+      "availability_checked_at": "2026-10-28T16:47:59+08:00",
       "published": false
     }
   ],

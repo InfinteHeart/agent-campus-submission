@@ -4,9 +4,9 @@
   "mode": "live",
   "model": "deepseek-flash",
   "mock_boundary": null,
-  "started_at": "2026-10-28T10:49:27+08:00",
-  "finished_at": "2026-10-28T10:49:33+08:00",
-  "elapsed_seconds": 6.026,
+  "started_at": "2026-10-28T16:48:36+08:00",
+  "finished_at": "2026-10-28T16:48:51+08:00",
+  "elapsed_seconds": 14.197,
   "steps": 6,
   "tool_calls": 6,
   "limits": {
@@ -37,7 +37,7 @@
         "code": "SAVE_FAILED",
         "message": "草稿保存失败，事务已回滚"
       },
-      "availability_checked_at": "2026-10-28T10:49:30+08:00",
+      "availability_checked_at": "2026-10-28T16:48:44+08:00",
       "published": false
     }
   ],

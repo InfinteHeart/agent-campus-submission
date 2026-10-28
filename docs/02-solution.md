@@ -2,7 +2,30 @@
 
 ## 调用流程
 
-`CLI → 校验请求 → 登记不可变请求指纹 → 为每项素材建立模型上下文 → DeepSeek 选择一个工具 → 参数/业务校验 → 执行 → 将真实观察交回模型 → 下一轮或 finish → 按工具状态组装结果`。
+`CLI → 校验请求 → 登记不可变请求指纹 → 为每项素材调用 LangGraph → 按真实工具状态组装结果`。每项素材构建一个 `StateGraph(ItemState)`；同一请求的总决策数、工具调用数和本批次暂定时段在素材之间继续传递。
+
+```mermaid
+flowchart LR
+    START --> B[check_budget]
+    B -->|预算可用| D[model_decide]
+    B -->|达到上限| END
+    D -->|有效工具调用| V[validate_action]
+    D -->|模型错误| END
+    V --> T[execute_tool]
+    T --> O[record_observation]
+    O -->|工具 finish 成功| END
+    O -->|继续处理| B
+```
+
+| LangGraph 节点 | 输入与职责 | 下一条边 |
+| --- | --- | --- |
+| `check_budget` | 核对全请求决策数、工具数与当前素材轮数；超限记录明确的 stop_reason | 未超限到 `model_decide`，否则 END |
+| `model_decide` | 将含实际观察的消息交给 DeepSeek；要求恰好一个原生工具调用 | 有效到 `validate_action`，模型错误到 END |
+| `validate_action` | 解析模型返回的 JSON 参数并计入工具调用预算 | 到 `execute_tool` |
+| `execute_tool` | 调用带业务前置条件与权限校验的工具白名单 | 到 `record_observation` |
+| `record_observation` | 记录动作、参数、公开事实依据、工具回执，并把原生 tool 消息送回模型上下文 | `finish` 成功则 END，否则回 `check_budget` |
+
+图的条件边只依据“预算/模型错误/工具是否结束”路由，不根据素材风险或冲突写死下一业务动作。补查、查当日候选、重试和结束由 `model_decide` 在观察工具结果后选择。图状态含消息、计数、当前动作、观察和停止原因；草稿与正式时段占位仍持久化在 SQLite。当前 CLI 请求同步执行，不使用 LangGraph checkpointer 暂停会话。
 
 模型实现 `decide(messages, tool_schemas)`；真实模式通过 HTTPS POST `/chat/completions`，默认 model=`deepseek-flash`，thinking disabled，tool_choice required，parallel_tool_calls false。每轮只允许一个原生工具调用。工具调用 ID 原样用于后续 tool 消息，未在对话中插入伪造的模型动作。
 
@@ -14,13 +37,14 @@
 
 正常路径：读资料、审规则、查原时段、保存、结束。冲突路径：原时段返回占用后，模型选择扩大查询，再选可用候选、保存待确认提案、结束。缺资料路径：模型根据规则返回的 supplementary_available 选择补查，之后重新审核，仍缺失则请求信息。
 
-`ranked_available_slots` 是工具按距离和等距离较晚优先计算的候选排序。它不自动触发查询或保存，也不赋予确认权限；动作和候选选择仍由模型生成。初次真实测试发现模型忽略等距离向后偏好，因此补充该字段，失败记录与改进见评估文档。
+`ranked_available_slots` 是工具按距离和等距离较晚优先计算的候选排序。它不自动触发查询或保存，也不赋予确认权限；动作和候选选择仍由模型生成。
 
 ## 信任与状态
 
 素材正文仅作为数据送入模型；系统提示明确不执行资料中的指令。工具白名单及严格参数集拒绝模型提供 approved 等越权字段。CLI 输入也不接受自带审批字段。
 
 规则检查使用可信资料和内部规则；保存再次检查资料签名与规则结果。`finish` 的结果必须被实际工具观察支持。最终输出由代码组装，不采用模型自由文本作为保存成功的依据。
+授权状态必须为 `cleared` 才能通过审核；`denied` 阻断，`unknown` 或缺失则要求补齐授权状态。证明编号非空不能代替授权状态。此约束由规则工具执行，模型不能自行豁免。
 
 hard/preferred 均保留 requested_at，任何替代时间均 pending_confirmation，scheduled_at=null。用户独立执行 confirm，提供草稿 ID、精确版本和具体时段；确认前重新检查规则签名和时段。经确认的同一提案可以在后续重试中保留确认；资料变化则不复用旧确认。
 
@@ -46,4 +70,4 @@ SQLite 事务依据：[Python sqlite3](https://docs.python.org/3/library/sqlite3
 
 ## 取舍
 
-采用 Python 标准库和原生循环，运行/测试无第三方依赖，也无框架职责与版本需要额外解释。单 Agent 和 CLI 足以展示核心循环；业务工具本地实现便于可控故障注入与复现。代价是没有框架的持久会话、复杂调度和分布式能力，均非本题要求。
+按提交者要求迁移到 LangGraph 1.2.18，使用 `StateGraph`、普通边、条件边、`START/END` 和编译后 `invoke` 承担工作流编排；原生 DeepSeek function calling 仍承担每轮动作选择，本地工具和 SQLite 仍承担业务事实与事务。这样节点、循环和停止路径可在代码中直接核对。代价是新增框架依赖；本题不使用 LangGraph 的多 Agent、持久会话或部署能力。Graph API 依据：[LangGraph 官方文档](https://docs.langchain.com/oss/python/langgraph/graph-api)。

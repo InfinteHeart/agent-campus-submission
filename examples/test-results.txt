@@ -24,6 +24,7 @@ test_save_rechecks_conflict_after_query (test_agent.AgentTests.test_save_recheck
 test_stale_confirmation_revision_rejected (test_agent.AgentTests.test_stale_confirmation_revision_rejected) ... ok
 test_transient_write_failure_recovers_same_request (test_agent.AgentTests.test_transient_write_failure_recovers_same_request) ... ok
 test_unapproved_alternative_always_pending (test_agent.AgentTests.test_unapproved_alternative_always_pending) ... ok
+test_unverified_rights_with_proof_cannot_pass (test_agent.AgentTests.test_unverified_rights_with_proof_cannot_pass) ... ok
 test_deepseek_flash_native_tool_protocol (test_agent.ModelAdapterTests.test_deepseek_flash_native_tool_protocol) ... ok
 test_env_supports_assignment_and_literal_key_without_execution (test_agent.ModelAdapterTests.test_env_supports_assignment_and_literal_key_without_execution) ... ok
 test_http_error_does_not_expose_provider_body (test_agent.ModelAdapterTests.test_http_error_does_not_expose_provider_body) ... ok
@@ -32,6 +33,6 @@ test_missing_key_has_no_silent_mock_fallback (test_agent.ModelAdapterTests.test_
 test_multiple_calls_rejected_before_side_effects (test_agent.ModelAdapterTests.test_multiple_calls_rejected_before_side_effects) ... ok
 
 ----------------------------------------------------------------------
-Ran 32 tests in 0.152s
+Ran 33 tests in 4.125s
 
 OK

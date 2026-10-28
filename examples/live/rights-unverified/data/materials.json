@@ -1,0 +1,75 @@
+{
+  "M01": {
+    "version": 1,
+    "title": "秋日新品预告",
+    "text": "秋日新品明日见，欢迎了解产品详情。",
+    "owner": "合成内容团队",
+    "rights_status": "cleared",
+    "rights_proof": "SYNTHETIC-LICENSE-001",
+    "allowed_channels": [
+      "wechat",
+      "weibo"
+    ],
+    "supplementary_available": false
+  },
+  "M02": {
+    "version": 1,
+    "title": "缺少授权资料的合成素材",
+    "text": "活动回顾。",
+    "owner": "合成内容团队",
+    "rights_status": "unknown",
+    "rights_proof": "SYNTHETIC-UNVERIFIED-PROOF",
+    "allowed_channels": [
+      "wechat"
+    ],
+    "supplementary_available": true
+  },
+  "M03": {
+    "version": 1,
+    "title": "命中内部禁止表达",
+    "text": "内部测试禁用词：保证收益。",
+    "owner": "合成内容团队",
+    "rights_status": "cleared",
+    "rights_proof": "SYNTHETIC-LICENSE-003",
+    "allowed_channels": [
+      "wechat"
+    ],
+    "supplementary_available": false
+  },
+  "M04": {
+    "version": 1,
+    "title": "可补查证明的素材",
+    "text": "城市漫步摄影活动预告。",
+    "owner": "合成内容团队",
+    "rights_status": "unknown",
+    "rights_proof": null,
+    "allowed_channels": [
+      "wechat"
+    ],
+    "supplementary_available": true
+  },
+  "M05": {
+    "version": 1,
+    "title": "需人工核实的合成素材",
+    "text": "内部测试待核实表达：销量第一。",
+    "owner": "合成内容团队",
+    "rights_status": "cleared",
+    "rights_proof": "SYNTHETIC-LICENSE-005",
+    "allowed_channels": [
+      "wechat"
+    ],
+    "supplementary_available": false
+  },
+  "M06": {
+    "version": 1,
+    "title": "另一项正常素材",
+    "text": "本周内容精选。",
+    "owner": "合成内容团队",
+    "rights_status": "cleared",
+    "rights_proof": "SYNTHETIC-LICENSE-006",
+    "allowed_channels": [
+      "wechat"
+    ],
+    "supplementary_available": false
+  }
+}

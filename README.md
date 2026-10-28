@@ -1,6 +1,6 @@
 # 素材审核与发布排期 Agent
 
-基座模型：**DeepSeek Flash (`deepseek-flash`)**。通过原生工具调用实现“模型选择动作 → 执行工具 → 观察结果 → 再次决策”。运行入口为 CLI，业务资料全部合成，**仅保存草稿，没有发布能力**。
+基座模型：**DeepSeek Flash (`deepseek-flash`)**。**LangGraph 1.2.18** 编排“预算检查 → 模型选动作 → 参数校验 → 工具执行 → 观察记录 → 再次决策”的 ReAct 工作流。运行入口为 CLI，业务资料全部合成，**仅保存草稿，没有发布能力**。
 
 ## 评审入口
 
@@ -9,28 +9,32 @@
 - [实际测试与验收证据](docs/03-evaluation.md)
 - [AI 使用说明](docs/04-ai-usage.md)
 - [复盘、用时与限制](docs/05-retrospective.md)
-- [真实 DeepSeek 验收报告](examples/live/report.json)
+- [真实 DeepSeek 六个必验点报告](examples/live/report.json)
+- [离线 15 场景报告](examples/mock/report.json)
+- [授权状态边界验证](examples/live/rights-unverified/verification.json)、[双时段占用验证](examples/live/two-slots-occupied/verification.json)
 - [正常路径 Trace](examples/live/normal/trace-1.jsonl)、[冲突路径 Trace](examples/live/conflict/trace-1.jsonl)
-- [离线验收报告](examples/mock/report.json)、[自动测试结果](examples/test-results.txt)
+- [自动测试结果](examples/test-results.txt)
 
 `completed` 表示请求中的每项素材都已经得到有证据支持的处理结果；结果可以是阻断或待补资料，**不代表所有素材均可排期**。`partial_failure` 表示至少一项工具操作失败；`incomplete` 表示上限、模型服务错误或模型主动报告未完成。
 
 ## 环境与安装
 
-Python **3.11 或更高版本**。运行和测试均仅依赖标准库，无需下载模型、安装框架或启动数据库服务。
+Python **3.11 或更高版本**。需要安装 `langgraph==1.2.18`；业务资料、SQLite 和 CLI 使用本地文件，无需启动数据库服务或下载模型权重。
 
 ```bash
 python3 --version
-python3 run.py --help
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+.venv/bin/python run.py --help
 ```
 
-`requirements.txt` 标明无需第三方运行依赖。`run.py` 是零安装入口；也提供 `pyproject.toml` 供需要安装包的环境使用。以下命令均在仓库根目录执行。
+若系统 Python 未安装 `venv` 组件，可用 `uv venv .venv` 与 `uv pip install --python .venv/bin/python -r requirements.txt`。以下命令均在仓库根目录执行。`pyproject.toml` 同样锁定了 LangGraph 版本。
 
 ## 离线运行（无需密钥）
 
 ```bash
-python3 run.py demo --mode mock --out runtime/review-mock
-python3 -m unittest discover -s tests -v
+.venv/bin/python run.py demo --mode mock --out runtime/review-mock
+.venv/bin/python -m unittest discover -s tests -v
 ```
 
 演示器在隔离的临时数据库中运行 15 组场景，自动断言结果，并保存输入、实际输出、Trace 与数据库快照。输出目录必须为空；重复演示请换一个目录。
@@ -52,10 +56,10 @@ DEEPSEEK_TIMEOUT=45
 
 ```bash
 # 两条最容易核对的真实模型路径
-python3 run.py demo --mode live --cases normal,conflict --out runtime/review-live
+.venv/bin/python run.py demo --mode live --cases normal,conflict --out runtime/review-live
 
 # 全部验收场景，包含故障注入和模拟用户确认
-python3 run.py demo --mode live --out runtime/review-live-all
+.venv/bin/python run.py demo --mode live --out runtime/review-live-all
 ```
 
 真实模式会产生付费 API 调用。使用官方 Chat Completions API、原生 function tools、非思考模式；不采集模型内部思维过程。每个动作的 `reason` 是可公开的简短事实依据。调用实现见 `src/asset_agent/model.py`。
@@ -82,7 +86,7 @@ python3 run.py demo --mode live --out runtime/review-live-all
 使用已提供的输入执行：
 
 ```bash
-python3 run.py run --mode live \
+.venv/bin/python run.py run --mode live \
   --input examples/live/conflict/input-1.json \
   --db runtime/review.sqlite \
   --output runtime/result.json --trace runtime/trace.jsonl
@@ -92,8 +96,8 @@ python3 run.py run --mode live \
 
 ```bash
 # 用刚才实际输出的 ID、版本和时段替换占位值
-python3 run.py show --db runtime/review.sqlite --draft-id D-实际ID
-python3 run.py confirm --db runtime/review.sqlite \
+.venv/bin/python run.py show --db runtime/review.sqlite --draft-id D-实际ID
+.venv/bin/python run.py confirm --db runtime/review.sqlite \
   --draft-id D-实际ID --revision 1 \
   --slot 2026-10-29T19:00:00+08:00
 ```
@@ -107,8 +111,8 @@ python3 run.py confirm --db runtime/review.sqlite \
 创建一个排期 JSON，例如将 19:00 设为占用后，导入同一数据库：
 
 ```bash
-python3 run.py import-schedules --db runtime/review.sqlite \
-  --file examples/live/changed_occupancy/schedules-after.json
+.venv/bin/python run.py import-schedules --db runtime/review.sqlite \
+  --file examples/mock/changed_occupancy/schedules-after.json
 
 # 随后重复执行上面的同一 run 命令，观察原草稿 ID 与新版本
 ```
@@ -116,7 +120,7 @@ python3 run.py import-schedules --db runtime/review.sqlite \
 导入仅替换 `schedule` 来源记录；与新排期冲突的已有可执行草稿会被标为 `stale` 并释放占位，审计事件保留。这是本地合成排期管理入口，不是 Agent 工具。
 
 ```bash
-python3 run.py run --mode mock \
+.venv/bin/python run.py run --mode mock \
   --input examples/mock/normal/input-1.json \
   --db runtime/failure.sqlite --simulate-save-failure \
   --output runtime/failure.json --trace runtime/failure-trace.jsonl

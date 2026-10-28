@@ -1,0 +1,51 @@
+{
+  "request_id": "unverified-rights-live-001",
+  "run_status": "completed",
+  "mode": "live",
+  "model": "deepseek-flash",
+  "mock_boundary": null,
+  "started_at": "2026-10-28T16:59:46+08:00",
+  "finished_at": "2026-10-28T16:59:50+08:00",
+  "elapsed_seconds": 3.679,
+  "steps": 4,
+  "tool_calls": 4,
+  "limits": {
+    "max_steps": 60,
+    "max_tool_calls": 50,
+    "per_item_steps": 12
+  },
+  "stop_reasons": [],
+  "items": [
+    {
+      "material_id": "M02",
+      "channel": "wechat",
+      "outcome": "needs_info",
+      "review_status": "needs_info",
+      "risk_reasons": [
+        {
+          "rule_id": "RIGHTS_UNVERIFIED",
+          "message": "授权状态未核实，不能仅凭证明编号视为已授权"
+        }
+      ],
+      "missing_fields": [
+        "rights_status"
+      ],
+      "requested_at": "2026-10-29T18:00:00+08:00",
+      "requirement_type": "hard",
+      "suggested_at": null,
+      "scheduled_at": null,
+      "confirmation_status": "not_applicable",
+      "pending_items": [
+        "补充资料：rights_status"
+      ],
+      "draft": {
+        "save_status": "not_attempted",
+        "record": null
+      },
+      "last_error": null,
+      "availability_checked_at": null,
+      "published": false
+    }
+  ],
+  "published": false
+}

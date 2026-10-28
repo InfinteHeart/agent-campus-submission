@@ -2,12 +2,12 @@
   "draft_count": 1,
   "drafts": [
     {
-      "id": "D-b1377ee7cc9f",
+      "id": "D-c10755f37ec3",
       "request_id": "demo-normal-001",
       "material_id": "M01",
       "revision": 1,
       "state": "ready",
-      "updated_at": "2026-10-28T10:49:04+08:00",
+      "updated_at": "2026-10-28T16:47:46+08:00",
       "approved_alternative_at": null,
       "channel": "wechat",
       "confirmation_status": "not_required",
@@ -27,7 +27,7 @@
       "channel": "wechat",
       "slot": "2026-10-29T18:00:00+08:00",
       "source": "draft",
-      "owner": "D-b1377ee7cc9f"
+      "owner": "D-c10755f37ec3"
     }
   ]
 }

@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "checks": {
+    "live": true,
+    "langgraph_trace": true,
+    "not_published": true,
+    "both_occupied": true,
+    "suggested_17": true,
+    "pending_no_claim": true
+  },
+  "source": "Codex-run current LangGraph workflow; not the submitter personal rerun"
+}

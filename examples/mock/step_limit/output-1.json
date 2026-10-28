@@ -4,9 +4,9 @@
   "mode": "mock",
   "model": "offline-observation-mock",
   "mock_boundary": "离线 Mock 仅验证流程，不证明真实模型决策效果",
-  "started_at": "2026-10-28T10:53:41+08:00",
-  "finished_at": "2026-10-28T10:53:41+08:00",
-  "elapsed_seconds": 0.0,
+  "started_at": "2026-10-28T16:51:13+08:00",
+  "finished_at": "2026-10-28T16:51:13+08:00",
+  "elapsed_seconds": 0.025,
   "steps": 2,
   "tool_calls": 2,
   "limits": {

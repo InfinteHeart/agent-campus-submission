@@ -10,11 +10,11 @@
 
 代码、合成资料、测试、离线与真实运行材料均在同一仓库。`.env` 和运行数据库被忽略，不能提交密钥。
 
-评审先阅读 README 和 docs/03-evaluation.md；实际验证命令：
+评审先阅读 README、docs/02-solution.md 和 docs/03-evaluation.md；当前版本使用 LangGraph 1.2.18，先按 README 安装依赖。实际验证命令：
 
 ```bash
-python3 -m unittest discover -s tests -v
-python3 run.py demo --mode mock --out runtime/reviewer-offline
-python3 run.py demo --mode live --cases normal,conflict --out runtime/reviewer-live
+.venv/bin/python -m unittest discover -s tests -v
+.venv/bin/python run.py demo --mode mock --out runtime/reviewer-offline
+.venv/bin/python run.py demo --mode live --cases normal,conflict --out runtime/reviewer-live
 git rev-parse HEAD
 ```

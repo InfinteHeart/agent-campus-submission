@@ -2,12 +2,12 @@
   "draft_count": 1,
   "drafts": [
     {
-      "id": "D-083726d64bb6",
+      "id": "D-518423beeecc",
       "request_id": "demo-changed_occupancy-001",
       "material_id": "M01",
       "revision": 1,
       "state": "pending_confirmation",
-      "updated_at": "2026-10-28T10:53:41+08:00",
+      "updated_at": "2026-10-28T16:51:12+08:00",
       "approved_alternative_at": null,
       "channel": "wechat",
       "confirmation_status": "pending",

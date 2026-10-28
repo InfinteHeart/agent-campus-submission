@@ -1,8 +1,8 @@
 {
   "passed": true,
   "mode": "live",
-  "case_count": 15,
-  "run_count": 18,
+  "case_count": 6,
+  "run_count": 7,
   "cases": [
     {
       "case": "normal",
@@ -45,71 +45,8 @@
       "runs": 1,
       "steps": 6,
       "mode": "live"
-    },
-    {
-      "case": "changed_occupancy",
-      "passed": true,
-      "runs": 2,
-      "steps": 11,
-      "mode": "live"
-    },
-    {
-      "case": "supplement",
-      "passed": true,
-      "runs": 1,
-      "steps": 6,
-      "mode": "live"
-    },
-    {
-      "case": "manual_review",
-      "passed": true,
-      "runs": 1,
-      "steps": 3,
-      "mode": "live"
-    },
-    {
-      "case": "no_slots",
-      "passed": true,
-      "runs": 1,
-      "steps": 5,
-      "mode": "live"
-    },
-    {
-      "case": "batch",
-      "passed": true,
-      "runs": 1,
-      "steps": 12,
-      "mode": "live"
-    },
-    {
-      "case": "confirmation",
-      "passed": true,
-      "runs": 2,
-      "steps": 13,
-      "mode": "live"
-    },
-    {
-      "case": "confirmation_conflict",
-      "passed": true,
-      "runs": 1,
-      "steps": 6,
-      "mode": "live"
-    },
-    {
-      "case": "step_limit",
-      "passed": true,
-      "runs": 1,
-      "steps": 2,
-      "mode": "live"
-    },
-    {
-      "case": "tool_limit",
-      "passed": true,
-      "runs": 1,
-      "steps": 2,
-      "mode": "live"
     }
   ],
-  "output_dir": "examples/live",
+  "output_dir": "runtime/langgraph-live-required",
   "boundary": "实际 DeepSeek 工具调用；业务资料、工具和用户确认均为本地合成场景"
 }

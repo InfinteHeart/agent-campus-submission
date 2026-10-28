@@ -110,6 +110,6 @@
       "mode": "mock"
     }
   ],
-  "output_dir": "examples/mock",
+  "output_dir": "runtime/langgraph-mock-all",
   "boundary": "Mock 仅验证流程，不证明真实模型决策效果"
 }

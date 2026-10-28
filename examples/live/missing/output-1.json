@@ -4,9 +4,9 @@
   "mode": "live",
   "model": "deepseek-flash",
   "mock_boundary": null,
-  "started_at": "2026-10-28T10:49:05+08:00",
-  "finished_at": "2026-10-28T10:49:09+08:00",
-  "elapsed_seconds": 3.357,
+  "started_at": "2026-10-28T16:47:47+08:00",
+  "finished_at": "2026-10-28T16:47:52+08:00",
+  "elapsed_seconds": 5.264,
   "steps": 4,
   "tool_calls": 4,
   "limits": {
@@ -21,9 +21,15 @@
       "channel": "wechat",
       "outcome": "needs_info",
       "review_status": "needs_info",
-      "risk_reasons": [],
+      "risk_reasons": [
+        {
+          "rule_id": "RIGHTS_UNVERIFIED",
+          "message": "授权状态未核实，不能仅凭证明编号视为已授权"
+        }
+      ],
       "missing_fields": [
-        "rights_proof"
+        "rights_proof",
+        "rights_status"
       ],
       "requested_at": "2026-10-29T18:00:00+08:00",
       "requirement_type": "hard",
@@ -31,7 +37,8 @@
       "scheduled_at": null,
       "confirmation_status": "not_applicable",
       "pending_items": [
-        "补充资料：rights_proof"
+        "补充资料：rights_proof",
+        "补充资料：rights_status"
       ],
       "draft": {
         "save_status": "not_attempted",

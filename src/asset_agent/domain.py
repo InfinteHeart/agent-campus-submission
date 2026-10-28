@@ -101,6 +101,10 @@ def evaluate(snapshot: dict, channel: str) -> dict:
             reasons.append({"rule_id": rule["id"], "message": rule["message"], "severity": rule["severity"]})
     if material.get("rights_status") == "denied":
         blocked.append({"rule_id": "RIGHTS_DENIED", "message": "合成授权状态为禁止使用"})
+    elif material.get("rights_status") != "cleared":
+        if "rights_status" not in missing:
+            missing.append("rights_status")
+        reasons.append({"rule_id": "RIGHTS_UNVERIFIED", "message": "授权状态未核实，不能仅凭证明编号视为已授权"})
     reasons = blocked + reasons
     status = "passed"
     if blocked or any(r.get("severity") == "block" for r in reasons):

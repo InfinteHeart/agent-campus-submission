@@ -76,6 +76,17 @@ class AgentTests(unittest.TestCase):
         self.assertEqual(output["items"][0]["outcome"], "needs_info")
         self.assertEqual(output["items"][0]["missing_fields"], ["material"])
 
+    def test_unverified_rights_with_proof_cannot_pass(self):
+        materials = load_json(self.data / "materials.json")
+        materials["M02"]["rights_proof"] = "SYNTHETIC-UNVERIFIED-PROOF"
+        (self.data / "materials.json").write_text(json.dumps(materials, ensure_ascii=False), encoding="utf-8")
+        output, _ = self.run_agent(request_for("unverified-rights", "M02"))
+        item = output["items"][0]
+        self.assertEqual(item["outcome"], "needs_info")
+        self.assertIn("rights_status", item["missing_fields"])
+        self.assertIn("RIGHTS_UNVERIFIED", {r["rule_id"] for r in item["risk_reasons"]})
+        self.assertEqual(self.store.conn.execute("SELECT count(*) FROM drafts").fetchone()[0], 0)
+
     def test_no_publish_or_confirmation_tools(self):
         names = {x["function"]["name"] for x in TOOL_SCHEMAS}
         self.assertNotIn("publish", names)
