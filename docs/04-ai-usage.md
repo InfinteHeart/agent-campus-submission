@@ -13,6 +13,7 @@
 3. 提交者在迁移前曾使用本地密钥亲自重跑“双时段占用”场景，提供输出并判断模型改选 17:00、未擅自落实改时。该个人验证发生在旧控制流版本，不列作当前 LangGraph 版本的运行证据。当前版本的[同场景证据](../examples/live/two-slots-occupied/verification.json)由 Codex 重新运行。
 4. 提交者在当前 LangGraph 版本中亲自在终端执行 `.venv/bin/python run.py --help` 和 `.venv/bin/python run.py demo --mode live --cases normal,conflict --out runtime/my-langgraph-review`，查看报告及 normal、conflict 各自的输出和 Trace，并报告四个文件符合预期。[本次个人复核报告](../examples/personal-review/report.json)显示真实模型运行 2/2 通过：normal 为 5 步，conflict 为 6 步。提交者核对正常路径保存 18:00 草稿、冲突路径保留原要求并等待确认，以及 Trace 中的工具调用顺序。Codex 根据提交者反馈整理并保存这次运行证据；没有将此项写作提交者手工修改代码。
 5. 提交者随后亲自在终端执行 `.venv/bin/python -m unittest discover -s tests -v`，将完整终端输出提供给 Codex；本次运行 33 项测试，耗时 3.845 秒，结果为 `OK`。这是当前 LangGraph 版本的个人自动测试复核，与前述 Codex 生成的[测试结果文件](../examples/test-results.txt)分开记录。
+6. 提交者提出将 `SYSTEM_PROMPT` 从 `agent.py` 移入独立文件。Codex 将原文原样迁至 `src/asset_agent/prompts.py` 并修改导入；这项结构调整由提交者提出、Codex 实施。
 
 ## 提交前个人核对
 

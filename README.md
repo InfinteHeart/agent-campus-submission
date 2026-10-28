@@ -66,6 +66,20 @@ DEEPSEEK_TIMEOUT=45
 
 接入依据：[DeepSeek 工具调用](https://api-docs.deepseek.com/guides/tool_calls/)、[Chat Completions 参数](https://api-docs.deepseek.com/api/create-chat-completion/)、[官方模型名](https://api-docs.deepseek.com/quick_start/pricing/)，核对日期 2026-10-28。
 
+## 设计结构
+
+```text
+CLI 请求
+  → 校验请求
+  → 对每项素材运行 LangGraph
+      预算检查 → 模型选择动作 → 参数校验 → 执行工具 → 记录观察
+                         ↑                         │
+                         └──── 根据工具结果继续 ────┘
+  → 汇总结果与 Trace
+```
+
+图有五个节点：check_budget、model_decide、validate_action、execute_tool、record_observation。模型可选择读取素材、检查规则、查询时段、保存草稿或结束；审核前置条件、改时确认和数据库写入结果由程序约束。用户确认替代时间有独立 CLI 入口，模型不能代替用户确认。
+
 ## 单请求与持久化草稿
 
 输入示例：
@@ -142,6 +156,6 @@ DEEPSEEK_TIMEOUT=45
 
 ## 提交
 
-题目：素材审核与发布排期 Agent。题干未给出数字题号，提交时填写主办方编号。
+题号：第 1 题，素材审核与发布排期 Agent。
 
 GitHub 地址和最终 commit SHA 应由实际推送结果提供；当前仓库的交付状态见 `SUBMISSION.md`。私有仓库需向评审账号授予读取权限。

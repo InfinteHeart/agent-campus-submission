@@ -27,6 +27,8 @@ flowchart LR
 
 图的条件边只依据“预算/模型错误/工具是否结束”路由，不根据素材风险或冲突写死下一业务动作。补查、查当日候选、重试和结束由 `model_decide` 在观察工具结果后选择。图状态含消息、计数、当前动作、观察和停止原因；草稿与正式时段占位仍持久化在 SQLite。当前 CLI 请求同步执行，不使用 LangGraph checkpointer 暂停会话。
 
+系统提示词单独保存在 `src/asset_agent/prompts.py`，`agent.py` 只导入并装入 system 消息；提示词与图编排代码分开维护。
+
 模型实现 `decide(messages, tool_schemas)`；真实模式通过 HTTPS POST `/chat/completions`，默认 model=`deepseek-flash`，thinking disabled，tool_choice required，parallel_tool_calls false。每轮只允许一个原生工具调用。工具调用 ID 原样用于后续 tool 消息，未在对话中插入伪造的模型动作。
 
 依据：[官方工具调用](https://api-docs.deepseek.com/guides/tool_calls/)、[官方参数](https://api-docs.deepseek.com/api/create-chat-completion/)，2026-10-28 核对。不使用 Beta strict 功能，参数在本地显式校验。不采集 reasoning_content，只记录动作参数中一句公开事实依据。
