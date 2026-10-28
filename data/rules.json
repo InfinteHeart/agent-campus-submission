@@ -1,0 +1,12 @@
+{
+  "version": "synthetic-rules-v1",
+  "notice": "仅用于工程考核的合成内部规则，不构成法律或完整媒体审核结论。",
+  "required_fields": ["title", "text", "owner", "rights_proof"],
+  "channels": ["wechat", "weibo"],
+  "business_hours": [9, 21],
+  "slot_minutes": 60,
+  "text_rules": [
+    {"id": "R001", "pattern": "保证收益", "severity": "block", "message": "命中合成内部阻断规则：保证收益"},
+    {"id": "R002", "pattern": "销量第一", "severity": "review", "message": "该表述需人工核实，当前项目不提供风险人工放行入口"}
+  ]
+}

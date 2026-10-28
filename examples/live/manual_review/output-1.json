@@ -1,0 +1,50 @@
+{
+  "request_id": "demo-manual_review-001",
+  "run_status": "completed",
+  "mode": "live",
+  "model": "deepseek-flash",
+  "mock_boundary": null,
+  "started_at": "2026-10-28T10:49:49+08:00",
+  "finished_at": "2026-10-28T10:49:51+08:00",
+  "elapsed_seconds": 2.559,
+  "steps": 3,
+  "tool_calls": 3,
+  "limits": {
+    "max_steps": 60,
+    "max_tool_calls": 50,
+    "per_item_steps": 12
+  },
+  "stop_reasons": [],
+  "items": [
+    {
+      "material_id": "M05",
+      "channel": "wechat",
+      "outcome": "needs_review",
+      "review_status": "needs_review",
+      "risk_reasons": [
+        {
+          "rule_id": "R002",
+          "message": "该表述需人工核实，当前项目不提供风险人工放行入口",
+          "severity": "review"
+        }
+      ],
+      "missing_fields": [],
+      "requested_at": "2026-10-29T18:00:00+08:00",
+      "requirement_type": "hard",
+      "suggested_at": null,
+      "scheduled_at": null,
+      "confirmation_status": "not_applicable",
+      "pending_items": [
+        "人工核实规则风险；当前项目不支持自动放行"
+      ],
+      "draft": {
+        "save_status": "not_attempted",
+        "record": null
+      },
+      "last_error": null,
+      "availability_checked_at": null,
+      "published": false
+    }
+  ],
+  "published": false
+}

@@ -1,0 +1,42 @@
+{
+  "request_id": "demo-no_slots-001",
+  "run_status": "completed",
+  "mode": "live",
+  "model": "deepseek-flash",
+  "mock_boundary": null,
+  "started_at": "2026-10-28T10:49:51+08:00",
+  "finished_at": "2026-10-28T10:49:56+08:00",
+  "elapsed_seconds": 4.902,
+  "steps": 5,
+  "tool_calls": 5,
+  "limits": {
+    "max_steps": 60,
+    "max_tool_calls": 50,
+    "per_item_steps": 12
+  },
+  "stop_reasons": [],
+  "items": [
+    {
+      "material_id": "M01",
+      "channel": "wechat",
+      "outcome": "unavailable",
+      "review_status": "passed",
+      "risk_reasons": [],
+      "missing_fields": [],
+      "requested_at": "2026-10-29T18:00:00+08:00",
+      "requirement_type": "hard",
+      "suggested_at": null,
+      "scheduled_at": null,
+      "confirmation_status": "not_applicable",
+      "pending_items": [],
+      "draft": {
+        "save_status": "not_attempted",
+        "record": null
+      },
+      "last_error": null,
+      "availability_checked_at": "2026-10-28T10:49:55+08:00",
+      "published": false
+    }
+  ],
+  "published": false
+}

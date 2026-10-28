@@ -1,0 +1,48 @@
+{
+  "request_id": "demo-normal-001",
+  "run_status": "incomplete",
+  "mode": "live",
+  "model": "deepseek-flash",
+  "mock_boundary": null,
+  "started_at": "2026-10-28T10:46:09+08:00",
+  "finished_at": "2026-10-28T10:46:09+08:00",
+  "elapsed_seconds": 0.025,
+  "steps": 1,
+  "tool_calls": 0,
+  "limits": {
+    "max_steps": 60,
+    "max_tool_calls": 50,
+    "per_item_steps": 12
+  },
+  "stop_reasons": [
+    {
+      "material_id": "M01",
+      "reason": "model_error",
+      "error": "MODEL_CONNECTION_ERROR: URLError；未切换 Mock"
+    }
+  ],
+  "items": [
+    {
+      "material_id": "M01",
+      "channel": "wechat",
+      "outcome": "incomplete",
+      "review_status": "not_checked",
+      "risk_reasons": [],
+      "missing_fields": [],
+      "requested_at": "2026-10-29T18:00:00+08:00",
+      "requirement_type": "hard",
+      "suggested_at": null,
+      "scheduled_at": null,
+      "confirmation_status": "not_applicable",
+      "pending_items": [],
+      "draft": {
+        "save_status": "not_attempted",
+        "record": null
+      },
+      "last_error": null,
+      "availability_checked_at": null,
+      "published": false
+    }
+  ],
+  "published": false
+}

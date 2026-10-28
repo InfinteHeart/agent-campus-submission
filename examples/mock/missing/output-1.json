@@ -1,0 +1,46 @@
+{
+  "request_id": "demo-missing-001",
+  "run_status": "completed",
+  "mode": "mock",
+  "model": "offline-observation-mock",
+  "mock_boundary": "离线 Mock 仅验证流程，不证明真实模型决策效果",
+  "started_at": "2026-10-28T10:53:41+08:00",
+  "finished_at": "2026-10-28T10:53:41+08:00",
+  "elapsed_seconds": 0.001,
+  "steps": 5,
+  "tool_calls": 5,
+  "limits": {
+    "max_steps": 60,
+    "max_tool_calls": 50,
+    "per_item_steps": 12
+  },
+  "stop_reasons": [],
+  "items": [
+    {
+      "material_id": "M02",
+      "channel": "wechat",
+      "outcome": "needs_info",
+      "review_status": "needs_info",
+      "risk_reasons": [],
+      "missing_fields": [
+        "rights_proof"
+      ],
+      "requested_at": "2026-10-29T18:00:00+08:00",
+      "requirement_type": "hard",
+      "suggested_at": null,
+      "scheduled_at": null,
+      "confirmation_status": "not_applicable",
+      "pending_items": [
+        "补充资料：rights_proof"
+      ],
+      "draft": {
+        "save_status": "not_attempted",
+        "record": null
+      },
+      "last_error": null,
+      "availability_checked_at": null,
+      "published": false
+    }
+  ],
+  "published": false
+}

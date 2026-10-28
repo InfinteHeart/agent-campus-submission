@@ -1,0 +1,37 @@
+test_all_offline_acceptance_cases (test_agent.AgentTests.test_all_offline_acceptance_cases) ... ok
+test_batch_failure_does_not_block_other_items (test_agent.AgentTests.test_batch_failure_does_not_block_other_items) ... ok
+test_cannot_claim_success_without_persistence (test_agent.AgentTests.test_cannot_claim_success_without_persistence) ... ok
+test_cannot_forge_confirmation_argument (test_agent.AgentTests.test_cannot_forge_confirmation_argument) ... ok
+test_cannot_save_before_review (test_agent.AgentTests.test_cannot_save_before_review) ... ok
+test_cli_exit_status_and_trace (test_agent.AgentTests.test_cli_exit_status_and_trace) ... ok
+test_concurrent_save_only_one_ready_claim (test_agent.AgentTests.test_concurrent_save_only_one_ready_claim) ... ok
+test_confirmation_of_different_slot_rejected (test_agent.AgentTests.test_confirmation_of_different_slot_rejected) ... ok
+test_confirmation_rechecks_material_snapshot (test_agent.AgentTests.test_confirmation_rechecks_material_snapshot) ... ok
+test_equivalent_timezone_replay_is_idempotent (test_agent.AgentTests.test_equivalent_timezone_replay_is_idempotent) ... ok
+test_invalid_actions_consume_budget (test_agent.AgentTests.test_invalid_actions_consume_budget) ... ok
+test_invalid_request_and_approval_fields_rejected (test_agent.AgentTests.test_invalid_request_and_approval_fields_rejected) ... ok
+test_limit_preserves_saved_draft_but_marks_run_incomplete (test_agent.AgentTests.test_limit_preserves_saved_draft_but_marks_run_incomplete) ... ok
+test_material_not_found (test_agent.AgentTests.test_material_not_found) ... ok
+test_model_can_recover_from_rejected_action (test_agent.AgentTests.test_model_can_recover_from_rejected_action) ... ok
+test_model_failure_returns_incomplete_without_mock_fallback (test_agent.AgentTests.test_model_failure_returns_incomplete_without_mock_fallback) ... ok
+test_no_publish_or_confirmation_tools (test_agent.AgentTests.test_no_publish_or_confirmation_tools) ... ok
+test_persistent_write_failure_rolls_back_all_writes (test_agent.AgentTests.test_persistent_write_failure_rolls_back_all_writes) ... ok
+test_ranked_candidates_prefer_later_when_distance_ties (test_agent.AgentTests.test_ranked_candidates_prefer_later_when_distance_ties) ... ok
+test_reject_unobserved_slot (test_agent.AgentTests.test_reject_unobserved_slot) ... ok
+test_request_id_cannot_overwrite_changed_requirements (test_agent.AgentTests.test_request_id_cannot_overwrite_changed_requirements) ... ok
+test_save_rechecks_changed_rules (test_agent.AgentTests.test_save_rechecks_changed_rules) ... ok
+test_save_rechecks_conflict_after_query (test_agent.AgentTests.test_save_rechecks_conflict_after_query) ... ok
+test_stale_confirmation_revision_rejected (test_agent.AgentTests.test_stale_confirmation_revision_rejected) ... ok
+test_transient_write_failure_recovers_same_request (test_agent.AgentTests.test_transient_write_failure_recovers_same_request) ... ok
+test_unapproved_alternative_always_pending (test_agent.AgentTests.test_unapproved_alternative_always_pending) ... ok
+test_deepseek_flash_native_tool_protocol (test_agent.ModelAdapterTests.test_deepseek_flash_native_tool_protocol) ... ok
+test_env_supports_assignment_and_literal_key_without_execution (test_agent.ModelAdapterTests.test_env_supports_assignment_and_literal_key_without_execution) ... ok
+test_http_error_does_not_expose_provider_body (test_agent.ModelAdapterTests.test_http_error_does_not_expose_provider_body) ... ok
+test_malformed_provider_shapes_return_model_error (test_agent.ModelAdapterTests.test_malformed_provider_shapes_return_model_error) ... ok
+test_missing_key_has_no_silent_mock_fallback (test_agent.ModelAdapterTests.test_missing_key_has_no_silent_mock_fallback) ... ok
+test_multiple_calls_rejected_before_side_effects (test_agent.ModelAdapterTests.test_multiple_calls_rejected_before_side_effects) ... ok
+
+----------------------------------------------------------------------
+Ran 32 tests in 0.152s
+
+OK

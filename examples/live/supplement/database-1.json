@@ -1,0 +1,33 @@
+{
+  "draft_count": 1,
+  "drafts": [
+    {
+      "id": "D-cf3c5b1dd22a",
+      "request_id": "demo-supplement-001",
+      "material_id": "M04",
+      "revision": 1,
+      "state": "ready",
+      "updated_at": "2026-10-28T10:49:48+08:00",
+      "approved_alternative_at": null,
+      "channel": "wechat",
+      "confirmation_status": "not_required",
+      "requested_at": "2026-10-29T18:00:00+08:00",
+      "requirement_type": "hard",
+      "rules_version": "synthetic-rules-v1",
+      "scheduled_at": "2026-10-29T18:00:00+08:00",
+      "snapshot": "fa93896dae0125a243af04111c557bc21b74d56ac61f79f4e9e0f7bff9311e16",
+      "suggested_at": "2026-10-29T18:00:00+08:00",
+      "supplementary_loaded": true
+    }
+  ],
+  "draft_claim_count": 1,
+  "event_count": 1,
+  "slot_claims": [
+    {
+      "channel": "wechat",
+      "slot": "2026-10-29T18:00:00+08:00",
+      "source": "draft",
+      "owner": "D-cf3c5b1dd22a"
+    }
+  ]
+}

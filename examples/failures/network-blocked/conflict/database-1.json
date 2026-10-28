@@ -1,0 +1,14 @@
+{
+  "draft_count": 0,
+  "drafts": [],
+  "draft_claim_count": 0,
+  "event_count": 0,
+  "slot_claims": [
+    {
+      "channel": "wechat",
+      "slot": "2026-10-29T18:00:00+08:00",
+      "source": "schedule",
+      "owner": "synthetic-existing-18"
+    }
+  ]
+}

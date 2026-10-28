@@ -1,0 +1,18 @@
+{
+  "request_id": "demo-batch-001",
+  "timezone": "Asia/Shanghai",
+  "items": [
+    {
+      "material_id": "M01",
+      "channel": "wechat",
+      "requested_at": "2026-10-29T18:00:00+08:00",
+      "requirement_type": "hard"
+    },
+    {
+      "material_id": "M06",
+      "channel": "wechat",
+      "requested_at": "2026-10-29T18:00:00+08:00",
+      "requirement_type": "hard"
+    }
+  ]
+}

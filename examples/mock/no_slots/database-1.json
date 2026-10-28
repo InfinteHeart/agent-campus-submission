@@ -1,0 +1,80 @@
+{
+  "draft_count": 0,
+  "drafts": [],
+  "draft_claim_count": 0,
+  "event_count": 0,
+  "slot_claims": [
+    {
+      "channel": "wechat",
+      "slot": "2026-10-29T09:00:00+08:00",
+      "source": "schedule",
+      "owner": "synthetic-existing-9"
+    },
+    {
+      "channel": "wechat",
+      "slot": "2026-10-29T10:00:00+08:00",
+      "source": "schedule",
+      "owner": "synthetic-existing-10"
+    },
+    {
+      "channel": "wechat",
+      "slot": "2026-10-29T11:00:00+08:00",
+      "source": "schedule",
+      "owner": "synthetic-existing-11"
+    },
+    {
+      "channel": "wechat",
+      "slot": "2026-10-29T12:00:00+08:00",
+      "source": "schedule",
+      "owner": "synthetic-existing-12"
+    },
+    {
+      "channel": "wechat",
+      "slot": "2026-10-29T13:00:00+08:00",
+      "source": "schedule",
+      "owner": "synthetic-existing-13"
+    },
+    {
+      "channel": "wechat",
+      "slot": "2026-10-29T14:00:00+08:00",
+      "source": "schedule",
+      "owner": "synthetic-existing-14"
+    },
+    {
+      "channel": "wechat",
+      "slot": "2026-10-29T15:00:00+08:00",
+      "source": "schedule",
+      "owner": "synthetic-existing-15"
+    },
+    {
+      "channel": "wechat",
+      "slot": "2026-10-29T16:00:00+08:00",
+      "source": "schedule",
+      "owner": "synthetic-existing-16"
+    },
+    {
+      "channel": "wechat",
+      "slot": "2026-10-29T17:00:00+08:00",
+      "source": "schedule",
+      "owner": "synthetic-existing-17"
+    },
+    {
+      "channel": "wechat",
+      "slot": "2026-10-29T18:00:00+08:00",
+      "source": "schedule",
+      "owner": "synthetic-existing-18"
+    },
+    {
+      "channel": "wechat",
+      "slot": "2026-10-29T19:00:00+08:00",
+      "source": "schedule",
+      "owner": "synthetic-existing-19"
+    },
+    {
+      "channel": "wechat",
+      "slot": "2026-10-29T20:00:00+08:00",
+      "source": "schedule",
+      "owner": "synthetic-existing-20"
+    }
+  ]
+}

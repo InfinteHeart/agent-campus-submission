@@ -1,0 +1,45 @@
+{
+  "request_id": "demo-save_failure-001",
+  "run_status": "partial_failure",
+  "mode": "live",
+  "model": "deepseek-flash",
+  "mock_boundary": null,
+  "started_at": "2026-10-28T10:49:27+08:00",
+  "finished_at": "2026-10-28T10:49:33+08:00",
+  "elapsed_seconds": 6.026,
+  "steps": 6,
+  "tool_calls": 6,
+  "limits": {
+    "max_steps": 60,
+    "max_tool_calls": 50,
+    "per_item_steps": 12
+  },
+  "stop_reasons": [],
+  "items": [
+    {
+      "material_id": "M01",
+      "channel": "wechat",
+      "outcome": "failed",
+      "review_status": "passed",
+      "risk_reasons": [],
+      "missing_fields": [],
+      "requested_at": "2026-10-29T18:00:00+08:00",
+      "requirement_type": "hard",
+      "suggested_at": null,
+      "scheduled_at": null,
+      "confirmation_status": "not_applicable",
+      "pending_items": [],
+      "draft": {
+        "save_status": "failed",
+        "record": null
+      },
+      "last_error": {
+        "code": "SAVE_FAILED",
+        "message": "草稿保存失败，事务已回滚"
+      },
+      "availability_checked_at": "2026-10-28T10:49:30+08:00",
+      "published": false
+    }
+  ],
+  "published": false
+}

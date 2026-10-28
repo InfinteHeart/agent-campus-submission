@@ -1,0 +1,47 @@
+{
+  "request_id": "demo-step_limit-001",
+  "run_status": "incomplete",
+  "mode": "mock",
+  "model": "offline-observation-mock",
+  "mock_boundary": "离线 Mock 仅验证流程，不证明真实模型决策效果",
+  "started_at": "2026-10-28T10:53:41+08:00",
+  "finished_at": "2026-10-28T10:53:41+08:00",
+  "elapsed_seconds": 0.0,
+  "steps": 2,
+  "tool_calls": 2,
+  "limits": {
+    "max_steps": 2,
+    "max_tool_calls": 50,
+    "per_item_steps": 12
+  },
+  "stop_reasons": [
+    {
+      "material_id": "M01",
+      "reason": "step_limit"
+    }
+  ],
+  "items": [
+    {
+      "material_id": "M01",
+      "channel": "wechat",
+      "outcome": "incomplete",
+      "review_status": "passed",
+      "risk_reasons": [],
+      "missing_fields": [],
+      "requested_at": "2026-10-29T18:00:00+08:00",
+      "requirement_type": "hard",
+      "suggested_at": null,
+      "scheduled_at": null,
+      "confirmation_status": "not_applicable",
+      "pending_items": [],
+      "draft": {
+        "save_status": "not_attempted",
+        "record": null
+      },
+      "last_error": null,
+      "availability_checked_at": null,
+      "published": false
+    }
+  ],
+  "published": false
+}

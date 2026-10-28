@@ -1,0 +1,120 @@
+{
+  "no_env_file": true,
+  "tests_exit": 0,
+  "demo_exit": 0,
+  "report": {
+    "passed": true,
+    "mode": "mock",
+    "case_count": 15,
+    "run_count": 18,
+    "cases": [
+      {
+        "case": "normal",
+        "passed": true,
+        "runs": 1,
+        "steps": 5,
+        "mode": "mock"
+      },
+      {
+        "case": "missing",
+        "passed": true,
+        "runs": 1,
+        "steps": 5,
+        "mode": "mock"
+      },
+      {
+        "case": "risk",
+        "passed": true,
+        "runs": 1,
+        "steps": 3,
+        "mode": "mock"
+      },
+      {
+        "case": "conflict",
+        "passed": true,
+        "runs": 1,
+        "steps": 6,
+        "mode": "mock"
+      },
+      {
+        "case": "duplicate",
+        "passed": true,
+        "runs": 2,
+        "steps": 10,
+        "mode": "mock"
+      },
+      {
+        "case": "save_failure",
+        "passed": true,
+        "runs": 1,
+        "steps": 6,
+        "mode": "mock"
+      },
+      {
+        "case": "changed_occupancy",
+        "passed": true,
+        "runs": 2,
+        "steps": 11,
+        "mode": "mock"
+      },
+      {
+        "case": "supplement",
+        "passed": true,
+        "runs": 1,
+        "steps": 7,
+        "mode": "mock"
+      },
+      {
+        "case": "manual_review",
+        "passed": true,
+        "runs": 1,
+        "steps": 3,
+        "mode": "mock"
+      },
+      {
+        "case": "no_slots",
+        "passed": true,
+        "runs": 1,
+        "steps": 5,
+        "mode": "mock"
+      },
+      {
+        "case": "batch",
+        "passed": true,
+        "runs": 1,
+        "steps": 12,
+        "mode": "mock"
+      },
+      {
+        "case": "confirmation",
+        "passed": true,
+        "runs": 2,
+        "steps": 12,
+        "mode": "mock"
+      },
+      {
+        "case": "confirmation_conflict",
+        "passed": true,
+        "runs": 1,
+        "steps": 6,
+        "mode": "mock"
+      },
+      {
+        "case": "step_limit",
+        "passed": true,
+        "runs": 1,
+        "steps": 2,
+        "mode": "mock"
+      },
+      {
+        "case": "tool_limit",
+        "passed": true,
+        "runs": 1,
+        "steps": 2,
+        "mode": "mock"
+      }
+    ],
+    "output_dir": "runtime/clean-demo",
+    "boundary": "Mock 仅验证流程，不证明真实模型决策效果"
+  }
+}
